@@ -76,19 +76,18 @@
     ></script>
 
     <script>
-      const url = async (data) => {
-        const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/product/",
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWRlMDRiYjUzZDAwMTViMTllZDEiLCJpYXQiOjE2MzIzMTI4MDAsImV4cCI6MTYzMzUyMjQwMH0.ZEiTPl6hBe2UEm5T239Bdd_a6OldaCdb8ShgjSK-vsI",
-            },
-          }
-        );
-        const responseJson = await response.json();
-        console.log(responseJson);
-      };
+
+      async function sendData(obj) {
+      let response = await fetch('https://striveschool-api.herokuapp.com/api/product/', {
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: new Headers({
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRiMWRlMDRiYjUzZDAwMTViMTllZDEiLCJpYXQiOjE2MzIzMTI4MDAsImV4cCI6MTYzMzUyMjQwMH0.ZEiTPl6hBe2UEm5T239Bdd_a6OldaCdb8ShgjSK-vsI",
+          'Content-Type': 'application/json'
+        })
+      })
+
+    }
 
       window.onload = async (data) => {
         url(data);
